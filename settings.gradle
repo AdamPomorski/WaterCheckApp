@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://repo.eclipse.org/content/repositories/paho-snapshots/"
+            maven { url 'https://jitpack.io' }
+        }
+    }
+}
+rootProject.name = "WaterCheckApp"
+include ':app'

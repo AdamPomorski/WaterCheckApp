@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:id="@+id/parent"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/sensorName2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sensor"
+            android:textStyle="bold"
+            android:textSize="18dp"/>
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/sensorIdName_list"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sensorName2"
+        android:text="ID"
+        android:textSize="15dp"/>
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/ph_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sensorIdName_list"
+        android:text="Ph"
+        android:textSize="15dp"
+        />
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/waterLevel_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ph_list"
+            android:text="Water level"
+            android:textSize="15dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:id="@+id/editSettingsButton_list"
+            android:layout_toLeftOf="@id/waterLevel_list"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="12dp"/>
+
+
+</RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

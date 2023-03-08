@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home"/>
+        <item android:id="@+id/nav_sensors"
+            android:icon="@drawable/ic_baseline_sensors_24"
+            android:title="Sensors"/>
+        <item android:id="@+id/nav_map"
+            android:icon="@drawable/ic_map"
+            android:title="Map"/>
+        <item android:id="@+id/nav_alarms"
+            android:icon="@drawable/ic_baseline_notification_important_24"
+            android:title="Alarms"/>
+        <item android:id="@+id/nav_history"
+            android:icon="@drawable/ic_baseline_insert_chart_outlined_24"
+            android:title="History"/>
+
+    </group>
+</menu>
