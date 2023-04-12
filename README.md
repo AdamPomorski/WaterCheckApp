@@ -41,5 +41,35 @@ Alarms view presents the list of alarms that occured from the start of applicati
 History view presents the menu to choose particular id and period of time from which the user would like to view data. Underneath this section there are two charts which refresh every time the confirm button is pressed. 
 
 ## How to use it
+### Server emulation
+As the application was a part of bigger project it was highly correlated with the server and database which are currently not maintained. Because of that to run this application I created two simple Mqtt Clients using Paho library in Python, which are emulating basic features of real server. File paho_server.py is responsible for responding to application requests such as sensor list request, history request and changing measure period request. File paho_publish.py is responsible for sending pseudo-random emulated data from sensors to the Mqtt Broker.
 
-As the application was a part of bigger project it was highly correlated with the server and database which are currently not maintained. Because of that to run this application there are certain solutions implemented in the code to emulate the server repsonses. In the near future there will be added two clients that will emulate sensor measurements and  server operations so that all application features (except for the map view) can be emulated.
+### Limitations
+In this version of the project the clients are emulating some features of the server only partially.<br><br>
+Sensors:
+<ul>
+<li>there are only two sensors set in paho_server</li>
+<li>the data is only emulated for one sensor</li>
+</ul>
+Settings:<br><br>
+<ul>
+<li>it is not possible to change the measure period of given sensor as it is statically set in paho_publish</li>
+</ul>
+History:<br><br>
+<ul>
+<li>the timestamps are not being checked and for each sensor there are always the same data points represented on the graphs</li>
+</ul>
+
+### Running the project
+
+There are two options to run the application: 
+- open the /application folder in Android Studio environment and run it from the GUI
+- download the WaterCheck.apk file from /run folder and run the application on the mobile device
+
+To run python clients you need:
+- python3 (in my case 3.9.13)
+- python library paho-mqtt
+```
+pip3 install paho-mqtt
+```
+Both of the clients should be working while you are using the application to see all the available functionalities.
