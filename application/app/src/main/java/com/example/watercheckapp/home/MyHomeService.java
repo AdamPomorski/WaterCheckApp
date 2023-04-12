@@ -183,7 +183,7 @@ public class MyHomeService extends Service {
                                 NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
                                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy   HH:mm:ss");
                                 LocalDateTime now = LocalDateTime.now();
-                                notMsg = dtf.format(now.plusHours(1)).toString() + "\n\nWater level on sensor " + JSONMethods.findSensorNumberByID(JSONMethods.chosenSensor) + " is " + JSONMethods.faultWLValue + " which is over the limit: " + AOI.findAlarmValueByID(JSONMethods.chosenSensor, AlarmTypes.TOO_LOW_WATER_LEVEL);
+                                notMsg = dtf.format(now.plusHours(1)).toString() + "\n\nWater level on sensor " + JSONMethods.findSensorNumberByID(JSONMethods.chosenSensor) + " is " + JSONMethods.faultWLValue + " which is under the limit: " + AOI.findAlarmValueByID(JSONMethods.chosenSensor, AlarmTypes.TOO_LOW_WATER_LEVEL);
                                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
                                         .setSmallIcon(R.drawable.ic_baseline_notification_important_12)
                                         .setContentTitle("TOO LOW WATER LEVEL ALARM!")
@@ -334,7 +334,7 @@ public class MyHomeService extends Service {
                     line = reader.readLine();
                 }
             } catch (IOException e) {
-                // Error occurred when opening raw file for reading.
+
             } finally {
                 String content = stringBuilder.toString();
                 String[] valuesArray = content.split(" ", 10);
@@ -393,7 +393,7 @@ public class MyHomeService extends Service {
             topic_sensors_request = "app/" + JSONMethods.USER_ID + "/sensors/request";
             mqttCallback = new MqttCallbackImpl();
             MqttConnectOptions mqttConnectOptions = new MqttConnectOptions();
-            mqttConnectOptions.setUserName("rw");
+            //mqttConnectOptions.setUserName("rw");
             mqttCallback.connect(host, port, mqttConnectOptions);
             mqttCallback.subscribe(topic_data);
             mqttCallback.subscribe(topic_app_history_response);
@@ -418,7 +418,7 @@ public class MyHomeService extends Service {
            /* THIS FRAGMENT IS RESPONSIBLE FOR WAITING FOR THE RESPONSE FROM SERVER
               AS THE SERVER IS NOT ACTIVE RIGHT NOW TO EMULATE HOW THE APPLICATION WORKS
               SOME VALUES WILL BE SET INSIDE THE PROGRAM
-
+*/
             while (!MqttCallbackImpl.finishedProcess) {
                 MqttCallbackImpl.finishedProcessFromThread = false;
                 try {
@@ -434,11 +434,11 @@ public class MyHomeService extends Service {
                 return null;
             }
 
-            */
-            JSONMethods.sensorsList.add(new SensorsData(1, "ex12-77bd-x8y2", "150", "52", "51", "description"));
-            AOI.addAlarms("ex12-77bd-x8y2");
-            JSONMethods.sensorsList.add(new SensorsData(2, "dd11-71cd-x8y3", "120", "55", "50", "description 2"));
-            AOI.addAlarms("dd11-71cd-x8y3");
+
+//            JSONMethods.sensorsList.add(new SensorsData(1, "ex12-77bd-x8y2", "150", "52", "51", "description"));
+//            AOI.addAlarms("ex12-77bd-x8y2");
+//            JSONMethods.sensorsList.add(new SensorsData(2, "dd11-71cd-x8y3", "120", "55", "50", "description 2"));
+//            AOI.addAlarms("dd11-71cd-x8y3");
 
 
             return null;

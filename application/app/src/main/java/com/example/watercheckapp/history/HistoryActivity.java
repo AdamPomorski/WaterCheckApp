@@ -90,6 +90,8 @@ public class HistoryActivity extends DrawerBaseActivity{
         idConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                graph1.removeAllSeries();
+                graph2.removeAllSeries();
                 MqttCallbackImpl.finishedProcess2 =false;
 
                 for (int i =0;i<JSONMethods.sensorsList.size();i++){
@@ -128,7 +130,7 @@ public class HistoryActivity extends DrawerBaseActivity{
                 }
                 String message = JSONMethods.sendHistoryRequest(JSONMethods.chosenSensor,unixTimeStart,unixTimeStop);
                 mqttCallback.clientPublish(topic_history_request,message);
-                //TODO: pozmieniać te while
+
                 while (!MqttCallbackImpl.finishedProcess2){
                     MqttCallbackImpl.finishedProcess2FromThread=false;
                     runnableSeconds runnableSeconds = new runnableSeconds(2);

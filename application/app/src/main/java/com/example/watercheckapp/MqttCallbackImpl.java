@@ -50,13 +50,13 @@ public class MqttCallbackImpl implements MqttCallback {
 
 
 
-    // Implementacja MqttCallbackImpl wymaga także modyfikacji – implementacja związana z konstruktorem:
+
     public MqttCallbackImpl(MutableLiveData<String> mutableLiveData) {
         this.mutableLiveData = mutableLiveData;
         isConnected = false;
     }
 
-    public MqttCallbackImpl() {//druga wersja konstruktora (intencjonalnie pusta)
+    public MqttCallbackImpl() {
     }
 
 

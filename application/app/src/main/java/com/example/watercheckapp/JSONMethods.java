@@ -21,18 +21,14 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class JSONMethods implements AOI{
-    public static String USER_ID = UUID.randomUUID().toString();
-
+    //public static String USER_ID = UUID.randomUUID().toString();
+    public static String USER_ID = "1";
     private static int sensor_number;
     public static String sensor_id;
     public static String timestamp;
     public static String ph;
     public static String water_level;
-//    public static String too_high_ph_value = "9";
-//    public static String too_low_ph_value = "5";
-//    public static String too_high_water_level_value = "100";
-//    public static String too_low_water_level_value = "50";
-//    public static String too_fast_water_level_change = "15";
+
     public static String measure_period = "120";
     public static String lang_s;
     public static String long_s;
@@ -49,51 +45,15 @@ public class JSONMethods implements AOI{
 
 
     public static  ArrayList<SensorsData> sensorsList = new ArrayList<>();
-//    public static ArrayList<String> occurredAlarmsList = new ArrayList<>();
+
     public static  ArrayList<SensorsData> historyList = new ArrayList<>();
 
 
-//    public static ArrayList<String> alarmValues = new ArrayList<>();
-//    public static ArrayList<Alarm> alarmsList = new ArrayList<>();
-//    public static ArrayList<Alarm> correctAlarmsList = new ArrayList<>();
 
-    //public static ArrayList<SensorsData> toComparePreviousWaterLvlList = new ArrayList<>();
 
     private static String TAG = "JSON_METHODS";
 
-//    private static void addAlarmValues(){
-//        alarmValues.add(0,too_high_ph_value);
-//        alarmValues.add(1,too_low_ph_value);
-//        alarmValues.add(2,too_high_water_level_value);
-//        alarmValues.add(3,too_low_water_level_value);
-//        alarmValues.add(4,too_fast_water_level_change);
-//    }
-//
-//    public static void findCorrectAlarms(String id){
-//        correctAlarmsList.clear();
-//
-//        for (Alarm a: alarmsList
-//             ) {
-//            if(a.getId().equals(id)){
-//                correctAlarmsList.add(a);
-//            }
-//        }
-//    }
-//
-//    public static String findAlarmValueByID(String id, AlarmTypes alarmTypes){
-//        String output = new String();
-//        for (int i =0;i<JSONMethods.sensorsList.size();i++) {
-//            for (int j = 0; j < JSONMethods.alarmsList.size(); j++) {
-//                if (JSONMethods.sensorsList.get(i).getSensor_id().equals(JSONMethods.alarmsList.get(j).getId()) && JSONMethods.sensorsList.get(i).getSensor_id().equals(id) && JSONMethods.alarmsList.get(j).getT()==alarmTypes){
-//
-//                        output = alarmsList.get(j).getValue();
-//                }
-//            }
-//        }
-//
-//
-//        return output;
-//    }
+
     public static int findSensorNumberByID(String id){
         Integer output = 0;
         for (SensorsData s: JSONMethods.sensorsList){
@@ -105,15 +65,6 @@ public class JSONMethods implements AOI{
     }
 
 
-//    public static void addAlarms(String id){
-//        AOI.addAlarmValues();
-//        int i=0;
-//        for (AlarmTypes alarmType: AlarmTypes.values()) {
-//            Alarm alarm = new Alarm(alarmType,id,alarmValues.get(i));
-//            alarmsList.add(alarm);
-//            i++;
-//        }
-//    }
 
     public JSONMethods() {
     }
@@ -134,8 +85,7 @@ public class JSONMethods implements AOI{
 
                     JSONMethods.chosenSensor = sensor_id;
 
-                    //HomeViewModel.changeValues();
-                    //HomeViewModel.addLog(sensor_id+" "+timestamp+" "+ph+" "+water_level);
+
                     boolean isListed = false;
                     for(int j=0; j<sensorsList.size();j++){
                         if(sensorsList.get(j).getSensor_id().equals(sensor_id)){
@@ -234,9 +184,6 @@ public class JSONMethods implements AOI{
 
         }
         Collections.sort(localList,Comparator.comparing(SensorsData::getTimestamp));
-//        localList.stream()
-//                .sorted(Comparator.comparing(SensorsData::getTimestamp))
-//                .collect(Collectors.toList());
 
         return localList;
     }

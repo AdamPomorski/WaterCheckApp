@@ -10,7 +10,7 @@ public interface AOI {
     String too_low_ph_value = "5";
     String too_high_water_level_value = "100";
     String too_low_water_level_value = "50";
-    String too_fast_water_level_change = "15";
+    String too_fast_water_level_change = "30";
     ArrayList<String> occurredAlarmsList = new ArrayList<>();
     ArrayList<String> alarmValues = new ArrayList<>();
     ArrayList<Alarm> alarmsList = new ArrayList<>();
