@@ -14,40 +14,40 @@ Part of this project was creating a mobile application with the following featur
 
 ## Application views
 
-<div style="text-align:center">
+<p align="center">
     <img src="img/home_screen.png" alt="Home screen" width="300"/>
-</div>
+</p>
 
 Home screen layout consists of the project logo and four buttons that redirect to the main views in the application.
 
-<div style="text-align:center">
+<p align="center">
     <img src="img/sensors.png" alt="Sensors" width="300"/>
-</div>
+</p>
 
 Sensors view presents the list of currently working sensors with their record number, ID, current pH, and water level values. Each row includes an "Edit" button leading to the settings section of a particular sensor.
 
-<div style="text-align:center">
+<p align="center">
     <img src="img/settings.png" alt="Settings" width="300"/>
-</div>
+</p>
 
 Settings view presents sensor's record number and description at the top, followed by values that are possible to change after confirmation: measurement period, max/min pH, and water level. These values are stored in the application's internal memory.
 
-<div style="text-align:center">
+<p align="center">
     <img src="img/map.png" alt="Map" width="300"/>
-</div>
+</p>
 
 Maps view utilizes the Google Maps API where each sensor has its location marked. Clicking on a marker redirects to the settings section of a particular sensor. This feature is currently disabled due to the expiration of the free trial in Google Cloud.
 
-<div style="text-align:center">
+<p align="center">
     <img src="img/alarms.png" alt="Alarms" width="300"/>
-</div>
+</p>
 
 Alarms view presents the list of alarms that occurred since the start of the application.
 
-<div style="text-align:center">
+<p align="center">
     <img src="img/history1.png" alt="History" width="300"/>
     <img src="img/history2.png" alt="History" width="300"/>
-</div>
+</p>
 
 History view allows users to choose a particular ID and time period to view data. Two charts below refresh every time the confirm button is pressed.
 
