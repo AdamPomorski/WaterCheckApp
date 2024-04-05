@@ -46,7 +46,7 @@ Alarms view presents the list of alarms that occurred since the start of the app
 
 <p align="center">
     <img src="img/history1.png" alt="History" width="300"/>
-    <img src="img/history2.png" alt="History" width="300"/>
+    <img src="img/history2.png" alt="History" width="287"/>
 </p>
 
 History view allows users to choose a particular ID and time period to view data. Two charts below refresh every time the confirm button is pressed.
