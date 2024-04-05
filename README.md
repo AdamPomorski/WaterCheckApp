@@ -2,76 +2,78 @@
 
 ## Overview
 
-WaterCheck is a project focused on measuring water level and ph values in rivers, controlling sensors digitally, storing data from them and visualising this data.
+WaterCheck is a project focused on measuring water level and pH values in rivers, controlling sensors digitally, storing data from them, and visualizing this data.
 
-It was created by Adam Pomorski, Michał Ciesielski, Julia Dasiewicz, Karol Duszczyk on PBL5 classes (winter 2022) as a part of the Internet of Things studies at the Warsaw University of Technology.
+It was created by Adam Pomorski, Michał Ciesielski, Julia Dasiewicz, Karol Duszczyk during PBL5 classes (winter 2022) as a part of the Internet of Things studies at the Warsaw University of Technology.
 
-Part of this project was creating mobile application with given features:
-- visualising current measurements from sensors
-- alarming user when the set limits of water level and ph are reached
-- controlling the measurement periods of sensors
-- visualising historical data from sensors
+Part of this project was creating a mobile application with the following features:
+- Visualizing current measurements from sensors
+- Alerting the user when the set limits of water level and pH are reached
+- Controlling the measurement periods of sensors
+- Visualizing historical data from sensors
 
 ## Application views
-<p align="center">
-<img src="img/home_screen.png" alt="home screen" width="400"/>
-</p>
 
+<div style="text-align:center">
+    <img src="img/home_screen.png" alt="Home screen" width="300"/>
+</div>
 
-Home screen layout consist of logo of the project and 4 buttons that are redirecting to the rest of the main views in the application.
+Home screen layout consists of the project logo and four buttons that redirect to the main views in the application.
 
-![Sensors](img/sensors.png)
+<div style="text-align:center">
+    <img src="img/sensors.png" alt="Sensors" width="300"/>
+</div>
 
-Sensors view presents the list of currently working sensors with their record number, id, current ph and water level values. On the right hand side of each row there is a "Edit" button which leads to the settings section of particular sensor
+Sensors view presents the list of currently working sensors with their record number, ID, current pH, and water level values. Each row includes an "Edit" button leading to the settings section of a particular sensor.
 
-![Settings](img/settings.png)
+<div style="text-align:center">
+    <img src="img/settings.png" alt="Settings" width="300"/>
+</div>
 
-Settings view presents sensor's record number and description at the top. Then below these section there are several values that are possible to change( by pressing confirm button at the bottom): measure period, max/min ph and water level. Measure period value is sent to the server after confirmation and then all the values are stored in application's internal memory so that each user can have individual values of alarms.
+Settings view presents sensor's record number and description at the top, followed by values that are possible to change after confirmation: measurement period, max/min pH, and water level. These values are stored in the application's internal memory.
 
-![Map](img/map.png)
+<div style="text-align:center">
+    <img src="img/map.png" alt="Map" width="300"/>
+</div>
 
-Maps view is working on the Google Maps API where each sensor has its location on the map. By clicking the marker u are redirected to the settings section of particular sensor. Currently this feature is not working because the free trial in Google Cloud has expired so to not generate additional costs this feature has been closed. Although it is really easy to attach it to individual Google Cloud Account by generating API KEY and adding it to AndroidManifest.xml.
+Maps view utilizes the Google Maps API where each sensor has its location marked. Clicking on a marker redirects to the settings section of a particular sensor. This feature is currently disabled due to the expiration of the free trial in Google Cloud.
 
-![Alarms](img/alarms.png)
+<div style="text-align:center">
+    <img src="img/alarms.png" alt="Alarms" width="300"/>
+</div>
 
-Alarms view presents the list of alarms that occured from the start of application.
+Alarms view presents the list of alarms that occurred since the start of the application.
 
-![History](img/history1.png)
+<div style="text-align:center">
+    <img src="img/history1.png" alt="History" width="300"/>
+    <img src="img/history2.png" alt="History" width="300"/>
+</div>
 
-![History](img/history2.png)
-
-History view presents the menu to choose particular id and period of time from which the user would like to view data. Underneath this section there are two charts which refresh every time the confirm button is pressed. 
+History view allows users to choose a particular ID and time period to view data. Two charts below refresh every time the confirm button is pressed.
 
 ## How to use it
+
 ### Server emulation
-As the application was a part of bigger project it was highly correlated with the server and database which are currently not maintained. Because of that to run this application I created two simple Mqtt Clients using Paho library in Python, which are emulating basic features of real server. File paho_server.py is responsible for responding to application requests such as sensor list request, history request and changing measure period request. File paho_publish.py is responsible for sending pseudo-random emulated data from sensors to the Mqtt Broker.
+
+As the application was a part of a bigger project, it was highly correlated with the server and database, which are currently not maintained. To run this application, two simple MQTT Clients were created using the Paho library in Python. `paho_server.py` responds to application requests such as sensor list request, history request, and changing measure period request. `paho_publish.py` sends pseudo-random emulated data from sensors to the MQTT Broker.
 
 ### Limitations
-In this version of the project the clients are emulating some features of the server only partially.<br><br>
-Sensors:
-<ul>
-<li>there are only two sensors set in paho_server</li>
-<li>the data is only emulated for one sensor</li>
-</ul>
-Settings:<br><br>
-<ul>
-<li>it is not possible to change the measure period of given sensor as it is statically set in paho_publish</li>
-</ul>
-History:<br><br>
-<ul>
-<li>the timestamps are not being checked and for each sensor there are always the same data points represented on the graphs</li>
-</ul>
+
+In this version of the project, the clients only partially emulate some features of the server:
+- Sensors:
+  - There are only two sensors set in `paho_server`.
+  - Data is only emulated for one sensor.
+- Settings:
+  - It is not possible to change the measure period of a given sensor as it is statically set in `paho_publish`.
+- History:
+  - Timestamps are not being checked, and for each sensor, there are always the same data points represented on the graphs.
 
 ### Running the project
 
-There are two options to run the application: 
-- open the /application folder in Android Studio environment and run it from the GUI
-- download the WaterCheck.apk file from /run folder and run the application on the mobile device
+There are two options to run the application:
+- Open the `/application` folder in Android Studio and run it from the GUI.
+- Download the `WaterCheck.apk` file from the `/run` folder and run the application on a mobile device.
 
-To run python clients you need:
-- python3 (in my case 3.9.13)
-- python library paho-mqtt
-```
-pip3 install paho-mqtt
-```
-Both of the clients should be working while you are using the application to see all the available functionalities.
+To run Python clients, you need:
+- Python 3 (e.g., version 3.9.13)
+- Python library `paho-mqtt`
