@@ -13,8 +13,9 @@ Part of this project was creating mobile application with given features:
 - visualising historical data from sensors
 
 ## Application views
-
+<div style="text-align:center">
 <img src="img/home_screen.png" alt="home screen" width="200"/>
+</div>
 ![Home](img/home_screen.png)
 
 Home screen layout consist of logo of the project and 4 buttons that are redirecting to the rest of the main views in the application.
